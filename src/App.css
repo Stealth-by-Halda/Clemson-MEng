@@ -1,0 +1,222 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('../src/futura/Futura\ Bold\ Italic\ font.ttf') format('truetype')
+}
+
+.App {
+  text-align: center;
+  
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+p, h1, h2, h3, label {
+  font-family: 'Inter';
+  font-weight: bold;
+}
+
+form {
+  background: #E5E7EB;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#btn {
+  margin-right: 3rem;
+}
+
+#btn, #admissions-btn {
+  background: #76150E;
+}
+
+#input {
+  width: 267px;
+  height: 38px;
+  top: 24px;
+  padding: 9px 13px;
+  margin: 24px 0px;
+  font-family: Inter;
+}
+
+#input-content {
+  margin: 0.5rem;
+}
+
+/* #input-field-container {
+  margin: 2rem;
+} */
+
+#program,
+#gpa,
+#experience,
+#located {
+  width: 267px;
+  height: 38px;
+  border-radius: 0px;
+}
+
+#dropdown-field label {
+  width: 267px;
+}
+
+
+#small-text {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 13px;
+  margin-right: 2em;
+}
+
+#middleImg {
+  object-fit: cover;
+}
+
+#confirmation-wrapper {
+  display: grid;
+}
+
+#confirmation-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#bottomImg {
+  padding-bottom: 10px;
+}
+
+
+
+@media (max-width: 640px) {
+
+#modal {
+  width: 350px;
+  max-height: 695px;
+  height: auto;
+}
+
+form {
+  background: #E5E7EB;
+  padding-bottom: 100px;
+}
+
+
+#modalGrid {
+  display: block;
+}
+
+#middleImg {
+  display: none;
+}
+
+#btn {
+  margin-right: 3rem;
+}
+
+#input-content {
+  margin: 0;
+}
+
+/* #bottomImg {
+  display: none;
+} */
+
+#content-right {
+  background-color: #F0F0F0 !important;
+  justify-self: center;
+  margin: 0rem 2rem 2rem 2rem;
+}
+
+#dropdown-field {
+  background-color: #E5E7EB;
+  border: none;
+}
+
+#confirmation-header {
+  width: 100%;
+  text-align: center;
+}
+
+#bottomImgLastPg {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  height: 45px;
+  padding-bottom: 10px;
+}
+
+}
