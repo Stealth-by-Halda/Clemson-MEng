@@ -36,12 +36,12 @@ export default function Modal() {
     setCurrentPage(currentPage - 1)
   }
   
-  const sendMail = () => {
-    const mailto="mailto:admissions@crownschool.uchicago.edu";
-    const subject="I just took your readiness assessment";
-    const body="Hi Crown School Admissions Team! I am interested in learning more about your programs";
-    window.location.href = mailto + '?subject=' + subject + '&body=' + body;
-  }
+  // const sendMail = () => {
+  //   const mailto="mailto:admissions@clemson.edu";
+  //   const subject="I just took your readiness assessment";
+  //   const body="Hi Clemson School Admissions Team! I am interested in learning more about your programs";
+  //   window.location.href = mailto + '?subject=' + subject + '&body=' + body;
+  // }
 
   const programDecision = () => {
     console.log(watchAllFields)
