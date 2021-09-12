@@ -80,7 +80,7 @@ export default function Modal() {
     if (watchAllFields.Experience === "1-2 years") {
       return (
         <>
-        <div className="text-center m-6">
+        <div className="text-center m-6" tabIndex="0">
         <p className="mb-4">
         <span id="response-content" className="space-y-4">
          We recommend at least 3 years to ensure you know your field enough to improve it
@@ -217,14 +217,14 @@ export default function Modal() {
                 {/* Billboard Left */}
                 {
                 currentPage < 3 ? 
-                <div className="col-start-1 sm:mt-0 relative" style={{backgroundColor: '#3A4A58'}} id="colstart1">
-                  <div className="mt-2 sm:mt-0">
+                <div className="col-start-1 mt-0 top-0" style={{backgroundColor: '#3A4A58'}} id="colstart1">
+                  <div className="mt-0 md:mt-2">
                       {/* <h1 className="m-4 w-topBillboardText h-topBillboardText font-sans not-italic font-extrabold text-billboardHeader leading-billboardHeader text-crownRed">ARE YOU READY FOR A GRADUATE PROGRAM?</h1>
                       <h3 className="m-4 font-sans font-medium">Find out in 30 seconds!</h3> */}
-                      <img src={background} className="md:h-459px  h-0 md:absolute  sm:top-0 sm:left-0" id="backgroundimage" alt=""/>
-                      <img src={Right} className="h-115px md:mt-20 mt-10 ml-10 mb-5 md:absolute" id="readyimage" alt=""/>
-                      <img src={Assess} className="h-40px md:absolute ml-10 mb-5 md:left-10 md:bottom-48" id="assess" alt=""/>
-                      <img src={Logo} className="md:absolute ml-10 pb-5 md:left-5 md:bottom-14" id="logo" alt=""/>
+                      {/* <img src={background} className="md:h-459px  h-0 md:absolute  sm:top-0 sm:left-0" id="backgroundimage" alt=""/> */}
+                      <img src={Right} className="h-115px md:mt-10 pt-5 ml-10 mb-5 md:absolute" id="readyimage" alt=""/>
+                      <img src={Assess} className="h-40px md:absolute ml-10 mb-5 md:bottom-48" id="assess" alt="Take Our Program fit assessment"/>
+                      <img src={Logo} className="md:absolute ml-10 pb-5 md:left-5 md:bottom-14" id="logo" alt="Clemson Logo"/>
                      {/*}  <img src={halda} className="mt-24 ml-4 w-24 bottom-5 right-5 absolute" id="halda" alt=""/> */}
 </div>
                   </div>
@@ -269,7 +269,7 @@ export default function Modal() {
                                       <option value="Business">Business</option>
                                       <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
                                     </select>
-                                    <legend  style={{color: "#3A4A58"}} className="text-sm font-medium pt-8">What do you prioritize in your education? *</legend>
+                                    <legend  style={{color: "#3A4A58"}} className="text-sm font-medium pt-8" tabIndex="0">What do you prioritize in your education? *</legend>
                                     {priority.map((priority, priorityIdx) => (
                                           <div key={priorityIdx} className="relative flex items-start py-1">
                                             <div className="min-w-0 flex-1 text-sm">
@@ -351,8 +351,8 @@ export default function Modal() {
                             currentPage === 3 ? 
                             <>
                                 <div className="h-28 mb-2 text-center pt-4" style={{ backgroundColor: '#3A4A58'}}>
-                                  <p className="text-3xl font-semibold" style={{ color: "#F66733"}}>Thank you, {watchFirstName}!</p>
-                                  <p className="text-base font-medium" style={{ color: "#F66733", margin: '20px'}}>From what you've told us...</p>
+                                  <p className="text-3xl font-semibold" style={{ color: "white"}} tabIndex="0">Thank you, {watchFirstName}!</p>
+                                  <p className="text-base font-medium" style={{ color: "white", margin: '20px'}} tabIndex="0">From what you've told us...</p>
                                 </div>
                                       {programDecision()}
                                 {/* <section id="confirmation-response" style={{ maxWidth: '425px', minWidth: 'auto', height: '162px', backgroundColor: 'white', margin: 'auto'}}>
