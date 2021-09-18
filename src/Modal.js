@@ -125,6 +125,8 @@ export default function Modal() {
         {response4 &&
         <p className="font-light">{response4}</p>
         }       </div>
+
+        <div className="text-center m-6"> <p className="font-light">Our program coordinator is available to answer any questions you have and tell you more about the program</p></div>
        <div className="grid justify-center">
       <button
                     id="calendlybutton"
@@ -255,7 +257,7 @@ export default function Modal() {
                                     </select>
 
                                 <label htmlFor="calc"  style={{color: "#3A4A58"}}  className="block text-sm font-medium sm:mt-px sm:pt-2 mb-1.5">
-                                Have You Taken 1 Year of Calculus & Stats? *
+                                What math classes have you passed? *
                                 </label>
                                     <select
                                       id="calc"
@@ -266,7 +268,7 @@ export default function Modal() {
                                     >
                                       <option value="" disabled selected>Select Class</option>
                                       <option value="Calc 1">Calc 1</option>
-                                      <option value="Business">Business</option>
+                                      <option value="Business">Business Calc + Statistics</option>
                                       <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
                                     </select>
                                     <legend  style={{color: "#3A4A58"}} className="text-sm font-medium pt-8" tabIndex="0">What do you prioritize in your education? *</legend>
