@@ -66,16 +66,35 @@ export default function Modal() {
   const programDecision = () => {
     console.log(watchAllFields)
     let response = ""
+    let header = ""
     let response2 = ""
+    let header2 = ""
     let response3 = ""
+    let header3 = ""
     let response4 = ""
+    let header4 = ""
 
-    if(watchAllFields['person-1']) response = "Community Amongst Peers: "
-    if(watchAllFields['person-2']) response2 = "Real-World Application: The opportunity to use what you're learning in your job, and the capstone project where you work with the supervisor to apply your skills to solve problems at your actual job"
-    if(watchAllFields['person-3']) response3 = "Work/Life Balance: 1 class/semester so as not to overwhelm schedules and give you an opportunity to use what you’re learning"
-    if(watchAllFields['person-4']) response4 = "Small Class Size: "
-
-    console.log(watchAllFields['person-1'])
+    if(watchAllFields['person-1']) 
+    {
+      header = "Community Amongst Peers: "
+      response = "Clemson University has one of the strongest alumni networks in the country. Our programs consistently attract some of the best talent, and we promote opportunities to get to know each other both socially as well as through your coursework."
+    }
+    if(watchAllFields['person-2']) 
+    {
+      header2 = "Real-World Application: "
+      response2 = "Our program emphasizes real world experience enhancing your education. You will have opportunity to use what you're learning in your job in your coursework, and the capstone project focuses on working together with your supervisor to apply your skills to solve problems at your actual job."
+    }
+    if(watchAllFields['person-3']) 
+    {
+      header3 = "Work/Life Balance: "
+      response3 = "Our programs were designed with the working professional in mind. At a pace of just 1 class/semester you will find that your schedule is not overwhelmed and that you have ample time to really apply what you're learning from class in your workplace."
+    }
+    if(watchAllFields['person-4']) 
+    {
+      header4 = "Small Class Size: "
+      response4 = "Each year we accept a maximum of 50 students per cohort. We have found that this cohort size is perfect to facilitate meaningful networking, improved classroom experience from diverse points of view, and still maintaining small class sizes and personalized attention."
+    }
+    //console.log(watchAllFields['person-1'])
 
     if (watchAllFields.Experience === "1-2 years") {
       return (
@@ -114,16 +133,16 @@ export default function Modal() {
         </span>
         </p>
         {response &&
-        <p className="font-light">{response}</p>
+        <p className="font-light"><span className="font-semibold">{header}</span>{response}</p>
         }
         {response2 &&
-        <p className="font-light">{response2}</p>
+        <p className="font-light"><span className="font-semibold">{header2}</span>{response2}</p>
         }
         {response3 &&
-        <p className="font-light">{response3}</p>
+        <p className="font-light"><span className="font-semibold">{header3}</span>{response3}</p>
         }
         {response4 &&
-        <p className="font-light">{response4}</p>
+        <p className="font-light"><span className="font-semibold">{header4}</span>{response4}</p>
         }       </div>
 
         <div className="text-center m-6"> <p className="font-light">Our program coordinator is available to answer any questions you have and tell you more about the program</p></div>
