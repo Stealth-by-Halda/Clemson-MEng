@@ -219,4 +219,37 @@ form {
   padding-bottom: 10px;
 }
 
+.answerBox{
+  margin: 0px;
+  padding: 8px;
+}
+.question{
+  padding: 8px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+.questionBox{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 8px;
+  background-color: #CE202F;
+  color: #ffffff;
+}
+.resultBox{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #636363;
+  text-align:left;
+  padding: 16px;
+  border: 1px solid #e7e7e7;
+  box-shadow:
+0 1px 3.6px rgba(0, 0, 0, 0.017),
+0 2.6px 10px rgba(0, 0, 0, 0.025),
+0 6.3px 24.1px rgba(0, 0, 0, 0.033),
+0 21px 80px rgba(0, 0, 0, 0.05);
+}
+
 }
