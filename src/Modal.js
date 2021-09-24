@@ -102,22 +102,45 @@ export default function Modal() {
         <div className="text-center m-6" tabIndex="0">
         <p className="mb-4">
         <span id="response-content" className="space-y-4">
-         We recommend at least 3 years to ensure you know your field enough to improve it
+        We recommend at least 3 years of work experience to ensure you know your field well enough to improve it, but that doesn't mean you shouldn't start the conversation with our team now! Schedule a time to speak to one of our admissions professionals below to create a personalized plan.
         </span>
         </p>
+        <h2 className="question"><em>What do you prioritize in your education?</em></h2>
         {response &&
-        <p className="font-light">{response}</p>
+        <div className="answerBox" id="answerbox2">
+          <h3 className="questionBox text-white mt-2" style={{backgroundColor: "#282c34"}}>{header}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response}</p>
+        </div>
         }
         {response2 &&
-        <p className="font-light">{response2}</p>
+        <div className="answerBox mt-2" id="answerbox2">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header2}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response2}</p>
+        </div>
         }
         {response3 &&
-        <p className="font-light">{response3}</p>
+        <div className="answerBox mt-2" id="answerbox3">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header3}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response3}</p>
+        </div>
         }
         {response4 &&
-        <p className="font-light">{response4}</p>
+        <div className="answerBox mt-2" id="answerbox4">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header4}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response4}</p>
+        </div>
         }
         </div>
+        <div className="text-center m-6"> <p className="font-light">Our program coordinator is available to answer any questions you have and tell you more about the program</p></div>
+       <div className="grid justify-center">
+      <button
+                    id="calendlybutton"
+                    className="font-medium text-white text-center w-40 h-10 mb-10"
+                    onClick={() => window.location.href='https://calendly.com/mariahm_clemsonie'}
+                    style={{ backgroundColor: '#3A4A58'}}
+                >
+                  Schedule
+                  </button></div>
 
         </>
       )
@@ -132,18 +155,31 @@ export default function Modal() {
         Having taken either Calc 1 or Business Calc with an extra class of statistics has set you up perfectly for our program!
         </span>
         </p>
+        <h2 className="question"><em>What do you prioritize in your education?</em></h2>
         {response &&
-        <p className="font-light"><span className="font-semibold">{header}</span>{response}</p>
+        <div className="answerBox" id="answerbox2">
+          <h3 className="questionBox text-white mt-2" style={{backgroundColor: "#282c34"}}>{header}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response}</p>
+        </div>
         }
         {response2 &&
-        <p className="font-light"><span className="font-semibold">{header2}</span>{response2}</p>
+        <div className="answerBox mt-2" id="answerbox2">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header2}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response2}</p>
+        </div>
         }
         {response3 &&
-        <p className="font-light"><span className="font-semibold">{header3}</span>{response3}</p>
+        <div className="answerBox mt-2" id="answerbox3">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header3}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response3}</p>
+        </div>
         }
         {response4 &&
-        <p className="font-light"><span className="font-semibold">{header4}</span>{response4}</p>
-        }       </div>
+        <div className="answerBox mt-2" id="answerbox4">
+          <h3 className="questionBox text-white" style={{backgroundColor: "#282c34"}}>{header4}</h3>
+          <p className="font-light border-2 rounded-b-md border-gray-800">{response4}</p>
+        </div>
+        }      </div>
 
         <div className="text-center m-6"> <p className="font-light">Our program coordinator is available to answer any questions you have and tell you more about the program</p></div>
        <div className="grid justify-center">
@@ -233,8 +269,8 @@ export default function Modal() {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className={currentPage === 3 ? "inline-block align-bottom bg-white px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg md:h-100-1 h-200-1 sm:w-full sm:p-0 overflow-auto" : "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-1 sm:h-1 sm:w-full sm:p-0"} id="modal">
-              <div style={{backgroundColor: '#C3C3C3'}} className={currentPage === 3 ? " grid h-200 md:h-100" : "grid grid-cols-2 h-200 md:h-100"} id="modalGrid">
+            <div className={currentPage === 3 ? "inline-block align-bottom bg-white px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg md:h-100-1 h-200-1 sm:w-full sm:p-0 overflow-y-auto" : "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-1 sm:h-1 sm:w-full sm:p-0"} id="modal">
+              <div style={{backgroundColor: '#C3C3C3'}} className={currentPage === 3 ? " grid h-200 md:h-100" : "grid grid-cols-2 h-200 md:h-100 bg-scroll"} id="modalGrid">
                 {/* Billboard Left */}
                 {
                 currentPage < 3 ? 
@@ -243,7 +279,8 @@ export default function Modal() {
                       {/* <h1 className="m-4 w-topBillboardText h-topBillboardText font-sans not-italic font-extrabold text-billboardHeader leading-billboardHeader text-crownRed">ARE YOU READY FOR A GRADUATE PROGRAM?</h1>
                       <h3 className="m-4 font-sans font-medium">Find out in 30 seconds!</h3> */}
                       {/* <img src={background} className="md:h-459px  h-0 md:absolute  sm:top-0 sm:left-0" id="backgroundimage" alt=""/> */}
-                      <img src={Right} className="h-115px md:mt-10 pt-5 ml-10 mb-5 md:absolute" id="readyimage" alt=""/>
+                      {/* <img src={Right} className="h-115px md:mt-10 pt-5 ml-10 mb-5 md:absolute" id="readyimage" alt=""/> */}
+                      <p className="pl-4 pt-8 md:text-3xl text-3xl font-normal ml-5 md:mb-10  mb-5 md:mt-8 mr-5" style={{color: "#EB6A22"}}>Wondering if our MEng program is right for you?</p>
                       <img src={Assess} className="h-40px md:absolute ml-10 mb-5 md:bottom-48" id="assess" alt="Take Our Program fit assessment"/>
                       <img src={Logo} className="md:absolute ml-10 pb-5 md:left-5 md:bottom-14" id="logo" alt="Clemson Logo"/>
                      {/*}  <img src={halda} className="mt-24 ml-4 w-24 bottom-5 right-5 absolute" id="halda" alt=""/> */}
