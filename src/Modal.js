@@ -139,7 +139,7 @@ export default function Modal() {
                     onClick={() => window.location.href='https://calendly.com/mariahm_clemsonie'}
                     style={{ backgroundColor: '#3A4A58'}}
                 >
-                  Schedule
+                  Schedule a Meeting
                   </button></div>
 
         </>
@@ -189,7 +189,7 @@ export default function Modal() {
                     onClick={() => window.location.href='https://calendly.com/mariahm_clemsonie'}
                     style={{ backgroundColor: '#3A4A58'}}
                 >
-                  Schedule
+                  Schedule a Meeting
                   </button></div>
         </>
         )
@@ -224,7 +224,7 @@ export default function Modal() {
                     onClick={() => window.location.href='https://calendly.com/mariahm_clemsonie'}
                     style={{ backgroundColor: '#3A4A58'}}
                   >
-                  Schedule
+                  Schedule a Meeting
                   </button></div>
         </>
       )
