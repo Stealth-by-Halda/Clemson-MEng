@@ -47,7 +47,8 @@ module.exports = {
       colors: {
           'selectBorderColor': '#D1D5DB',
           'distinctionGray': '#F0F0F0',
-          'disclaimerGray': '#9F9F9F'
+          'disclaimerGray': '#9F9F9F',
+          'responseBoxColor': '#E8B54A'
       },
       spacing: {
         'border40': '40px',
