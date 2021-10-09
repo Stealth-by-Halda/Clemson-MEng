@@ -22,20 +22,12 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
       height: {
-        '1': '28.125rem',
-        '100': '100%',
-        'inherit': 'inherit',
-        'topBillBoardText': '90px',
-        'middleBillboardImg': '150px',
-        '459px': '459px',
-        '115px': '115px',
-        '40px': '40px',
+        'appHeight525': '525px',
+        'selectHeight32': '32px'
       },
       width: {
-        '1': '700px',
-        'topBillboardText': '291px',
-        'middleBillboardImg': '350px',
-        'bottomBillboardImg': '300px'
+        'appWidth340': '340px',
+        'selectWidth230': '230px'
       },
       maxWidth: {
         '1': '43.75rem'
@@ -47,15 +39,20 @@ module.exports = {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        'billboardHeader': '30px',
-        'billboardSubHeader': '18px'
+        'disclaimer10': '10px',
       },
       lineHeight: {
         'billboardHeader': '30px'
       },
       colors: {
-          'crownRed': '#76150E',
-          'distinctionGray': '#F0F0F0'
+          'selectBorderColor': '#D1D5DB',
+          'distinctionGray': '#F0F0F0',
+          'disclaimerGray': '#9F9F9F'
+      },
+      spacing: {
+        'border40': '40px',
+        'spacing10': '10px',
+        'spacing16': '16px',
       },
     },
   },

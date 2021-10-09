@@ -1,21 +1,21 @@
-import { Fragment, useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useForm } from 'react-hook-form';
-import { Dialog, Transition } from '@headlessui/react'
 //import './App.css';
-import background from './images/MengBackgroundImage.png';
-import Right from './images/MengRightForYou.png';
-import Assess from './images/MengAssess.png';
-import Logo from './images/MengLogo.png';
-import halda from './images/halda.png';
+// import background from './images/MengBackgroundImage.png';
+// import Right from './images/MengRightForYou.png';
+// import Assess from './images/MengAssess.png';
+// import Logo from './images/MengLogo.png';
+// import halda from './images/halda.png';
 
 
 export default function Modal() {
-  const [open, setOpen] = useState(true)
   const [checkedItems, setCheckedItems] = useState({}); //plain object as state
 
   const [q1, setq1] = useState(false)
   const [q2, setq2]  = useState(false)
   const [q3, setq3]  = useState(false)
+  const [q4, setq4]  = useState(false)
+  const [q5, setq5]  = useState(false)
 
   const handleChange = (event) => {
     // updating an object instead of a Map
@@ -45,10 +45,11 @@ export default function Modal() {
 
   const setNextPage = () => {
     if(currentPage === 1) 
-
-      if(q1 && q2 && q3) setCurrentPage(currentPage + 1)
-    // currentPage === 1 && setCurrentPage(2)
-    // currentPage === 2 && setCurrentPage(3)
+      if(q1 && q2) setCurrentPage(currentPage + 1)
+    else if(currentPage === 2) 
+      if(q3 && q4 && q5) setCurrentPage(currentPage + 1)
+    else if(currentPage === 3) 
+      if(q3 && q4 && q5) setCurrentPage(currentPage + 1)
   }
 
   const setPrevPage = () => {
@@ -240,204 +241,183 @@ export default function Modal() {
     { id: 4, name: 'Small Class Size' },
   ]
 
-  return (
-    <Transition.Root show={open} as={Fragment} data-backdrop="static" data-keyboard="false">
-      <Dialog as="div" static className="fixed z-10 inset-0 overflow-y-auto animated fadeIn faster" open={open} initialFocus={completeButtonRef} onClose={setOpen}>
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 ">
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
+  if(currentPage !== 4 )
+    return (
+      
+              <div className="h-appHeight525 w-appWidth340" >
+                      <form className="p-border40 min-h-full max-" style={{backgroundColor: '#2B2B29'}} onSubmit={handleSubmit(onSubmit, onError)}>
+                          {
+                              currentPage === 1 && 
+                              <>
+                                  <h1 className="text-white text-2xl font-extrabold">PLANNING FOR YOUR EDUCATION BEGINS HERE</h1>
+                                  <p className="text-white pt-1 font-light">Get your personalized plan in 30 seconds.</p>
+                                  
+                                  <label htmlFor="experience" className="block text-white text-sm pt-4 pb-1 font-light">
+                                  When do you want to begin your study abroad?
+                                  </label>
+                                      <select
+                                        id="q1"
+                                        autoComplete="q1"
+                                        className="block mt-1 mb-spacing16 font-light border-selectBorderColor rounded-none h-selectHeight32 w-full"
+                                        name="q1"  {...register("q1", { required: true })}
+                                        onChange={() => setq1(true)}
+                                        required
+                                      >
+                                        <option value="" disabled selected>Select your starting time</option>
+                                        <option value="1-2 years">1-2 years</option>
+                                        <option value="3-5 years">3-5 years</option>
+                                        <option value="6-9 years">6-9 years</option>
+                                        <option value="10+ years">Over 10 years</option>
+                                      </select>
 
-          {/* This element is to trick the browser into centering the modal contents. */}
-          <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-            &#8203;
-          </span>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            enterTo="opacity-100 translate-y-0 sm:scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          >
-            <div className={currentPage === 3 ? "inline-block align-bottom bg-white px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg md:h-100-1 h-200-1 sm:w-full sm:p-0 overflow-y-auto" : "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-1 sm:h-1 sm:w-full sm:p-0"} id="modal">
-              <div style={{backgroundColor: '#C3C3C3'}} className={currentPage === 3 ? " grid h-200 md:h-100" : "grid grid-cols-2 h-200 md:h-100 bg-scroll"} id="modalGrid">
-                {/* Billboard Left */}
-                {
-                currentPage < 3 ? 
-                <div className="col-start-1 mt-0 top-0" style={{backgroundColor: '#3A4A58'}} id="colstart1">
-                  <div className="mt-0 md:mt-2">
-                      {/* <h1 className="m-4 w-topBillboardText h-topBillboardText font-sans not-italic font-extrabold text-billboardHeader leading-billboardHeader text-crownRed">ARE YOU READY FOR A GRADUATE PROGRAM?</h1>
-                      <h3 className="m-4 font-sans font-medium">Find out in 30 seconds!</h3> */}
-                      {/* <img src={background} className="md:h-459px  h-0 md:absolute  sm:top-0 sm:left-0" id="backgroundimage" alt=""/> */}
-                      {/* <img src={Right} className="h-115px md:mt-10 pt-5 ml-10 mb-5 md:absolute" id="readyimage" alt=""/> */}
-                      <p className="pl-4 pt-8 md:text-3xl text-3xl font-normal ml-5 md:mb-10  mb-5 md:mt-8 mr-5" style={{color: "#EB6A22"}}>Wondering if our MEng program is right for you?</p>
-                      <img src={Assess} className="h-40px md:absolute ml-10 mb-5 md:bottom-48" id="assess" alt="Take Our Program fit assessment"/>
-                      <img src={Logo} className="md:absolute ml-10 pb-5 md:left-5 md:bottom-14" id="logo" alt="Clemson Logo"/>
-                     {/*}  <img src={halda} className="mt-24 ml-4 w-24 bottom-5 right-5 absolute" id="halda" alt=""/> */}
-</div>
-                  </div>
-                :
-                null
-                }
-                {/* Content Right */}
-                <div id="content-right" style={{ margin: currentPage === 3 ? "0" : "0rem 2rem 2rem 2rem"}}>
-                    <form className={currentPage === 3 ? "bg-white hidden md:block" : "bg-white" } style={{backgroundColor: '#C3C3C3'}} onSubmit={handleSubmit(onSubmit, onError)}>
-                        {
-                            currentPage === 1 ? 
+                                  <label htmlFor="calc" className="block text-white text-sm pb-1 font-light">
+                                  What is your target program?
+                                  </label>
+                                      <select
+                                        id="q2"
+                                        autoComplete="q2"
+                                        className="block mt-1 font-light border-selectBorderColor rounded-none h-selectHeight32 w-full"                                      
+                                        name="q2"  {...register("q2", { required: true })}
+                                        onChange={() => setq2(true)}
+                                        required
+                                      >
+                                        <option value="" disabled selected>Select your program</option>
+                                        <option value="Calc 1">Calc 1</option>
+                                        <option value="Business">Business Calc + Statistics</option>
+                                        <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
+                                      </select>
+                                      <div className="sm:flex sm:flex-row-reverse">
+                                        <button
+                                            id="btn"
+                                            className="font-medium text-white text-center w-auto h-auto mt-spacing16 px-5 py-3"
+                                            onClick={() => setNextPage()}
+                                            style={{ backgroundColor: '#E8B54A'}}
+                                        >
+                                          Next
+                                        </button>
+                                      </div>                                
+                              </>
+                          }
+                          {
+                            currentPage === 2 && 
                             <>
-                                <label htmlFor="experience" style={{color: "#3A4A58"}} className="block text-sm font-medium sm:mt-px sm:pt-2 mb-1.5">
-                                Years of Work Experience? *
-                                </label>
-                                    <select
-                                      id="experience"
-                                      autoComplete="experience"
-                                      className="border-solid border hh-dropdown max-w-lg block focus:ring-indigo-500  w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
-                                      name="experience"  {...register("Experience", { required: true })}
-                                      onChange={() => setq1(true)}
-                                    >
-                                      <option value="" disabled selected>Select Experience</option>
-                                      <option value="1-2 years">1-2 years</option>
-                                      <option value="3-5 years">3-5 years</option>
-                                      <option value="6-9 years">6-9 years</option>
-                                      <option value="10+ years">Over 10 years</option>
-                                    </select>
+                              <label htmlFor="q3" className="block text-white text-sm pt-4 pb-1 font-light">
+                                  When do you want to begin your study abroad?
+                                  </label>
+                                      <select
+                                        id="q3"
+                                        autoComplete="q3"
+                                        className="block mt-1 mb-spacing16 font-light border-selectBorderColor rounded-none h-selectHeight32 w-full"
+                                        name="q3"  {...register("q3", { required: true })}
+                                        onChange={() => setq3(true)}
+                                        required
+                                      >
+                                        <option value="" disabled selected>Select your starting time</option>
+                                        <option value="1-2 years">1-2 years</option>
+                                        <option value="3-5 years">3-5 years</option>
+                                        <option value="6-9 years">6-9 years</option>
+                                        <option value="10+ years">Over 10 years</option>
+                                      </select>
 
-                                <label htmlFor="calc"  style={{color: "#3A4A58"}}  className="block text-sm font-medium sm:mt-px sm:pt-2 mb-1.5">
-                                What math classes have you passed? *
-                                </label>
-                                    <select
-                                      id="calc"
-                                      autoComplete="calc"
-                                      className="border-solid border hh-dropdown max-w-lg block focus:ring-indigo-500  w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
-                                      name="calc"  {...register("Calc_Stats", { required: true })}
-                                      onChange={() => setq2(true)}
-                                    >
-                                      <option value="" disabled selected>Select Class</option>
-                                      <option value="Calc 1">Calc 1</option>
-                                      <option value="Business">Business Calc + Statistics</option>
-                                      <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
-                                    </select>
-                                    <legend  style={{color: "#3A4A58"}} className="text-sm font-medium pt-8" tabIndex="0">What do you prioritize in your education? *</legend>
-                                    {priority.map((priority, priorityIdx) => (
-                                          <div key={priorityIdx} className="relative flex items-start py-1">
-                                            <div className="min-w-0 flex-1 text-sm">
-                                              <label htmlFor={`person-${priority.id}`} style={{color: "#3A4A58"}}  className="font-medium select-none">
-                                                {priority.name}
-                                              </label>
-                                            </div>
-                                            <div className="ml-3 flex items-center h-5">
-                                              <input
-                                                id={`person-${priority.id}`}
-                                                name={`person-${priority.id}`}
-                                                type="checkbox"
-                                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                                                checked={checkedItems[`person-${priority.id}`]} 
-                                                onClick={handleChange}
-                                                {...register(`person-${priority.id}`)}
-                                              />
-                                            </div>
-                                          </div>
-                                        ))}
-                                    <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                                    <div className="absolute bottom-0 right-0 h-16 w-3/6" style={{ display: 'contents'}}>
+                                  <label htmlFor="q4" className="block text-white text-sm pb-1 font-light">
+                                  What is your target program?
+                                  </label>
+                                      <select
+                                        id="q4"
+                                        autoComplete="q4"
+                                        className="block mt-1 mb-spacing16 font-light border-selectBorderColor rounded-none h-selectHeight32 w-full"                                      
+                                        name="q4"  {...register("q4", { required: true })}
+                                        onChange={() => setq4(true)}
+                                        required
+                                      >
+                                        <option value="" disabled selected>Select your program</option>
+                                        <option value="Calc 1">Calc 1</option>
+                                        <option value="Business">Business Calc + Statistics</option>
+                                        <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
+                                      </select>
 
-                                            <button
-                                              id="btn"
-                                              className="font-medium text-white text-center w-40 h-10"
-                                              onClick={() => setNextPage()}
-                                              style={{ backgroundColor: '#3A4A58'}}
-                                           >
-                                            Next
-                                            </button>
-                                      </div>
+                                  <label htmlFor="q5" className="block text-white text-sm pb-1 font-light">
+                                  What is your target program?
+                                  </label>
+                                      <select
+                                        id="q5"
+                                        autoComplete="q5"
+                                        className="block mt-1 font-light border-selectBorderColor rounded-none h-selectHeight32 w-full"                                      
+                                        name="q5"  {...register("q5", { required: true })}
+                                        onChange={() => setq5(true)}
+                                        required
+                                      >
+                                        <option value="" disabled selected>Select your program</option>
+                                        <option value="Calc 1">Calc 1</option>
+                                        <option value="Business">Business Calc + Statistics</option>
+                                        <option value="Take/Pass them by next May">Take/Pass them by next May?</option>
+                                      </select>
+
+                                    <div className="sm:flex sm:flex-row-reverse">
+                                      
+                                      <button
+                                          id="btn"
+                                          className="font-medium text-white text-center w-auto h-auto mt-spacing16 px-5 py-3"
+                                          onClick={() => setNextPage()}
+                                          style={{ backgroundColor: '#E8B54A'}}
+                                      >
+                                        Next
+                                      </button>
+                                      <button
+                                          id="btn"
+                                          className="font-medium text-white text-center w-auto h-auto mt-spacing16 mr-spacing10 px-5 py-3"
+                                          onClick={() => setPrevPage()}
+                                          style={{ backgroundColor: '#393939'}}
+                                      >
+                                        Back
+                                      </button>
                                     </div>
                                 
                             </>
-                            :
-                            null
-                        }
-                        {
-                            currentPage === 2 ? 
-                            <>
-                                <section id="input-content">
-                                  <input className="block" id="input" type="text" placeholder="First name" {...register("FirstName", {required: true, maxLength: 80})} />
-                                  <input className="block" id="input" type="text" placeholder="Last name" {...register("LastName", {required: true, maxLength: 100})} />
-                                  <input className="block" id="input" type="text" placeholder="Email Address" {...register("EmailAddress", {required: true, pattern: /^\S+@\S+$/i})} />
-                                  <input className="block" id="input" type="tel" placeholder="Phone Number" {...register("PhoneNumber", {required: false, maxLength: 12})} />
-                                  <p id="small-text" className="sm:pb-4">
-                                  This assessment provides personalized information based on your answers, but results should not be considered definitive or final. 
-                                  One of our counselors will reach out to offer additional insights and assistance.
-                                  </p>
-                                </section>
-                                <div className="absolute bottom-0 right-0 h-16 w-3/6" style={{ display: 'contents'}}>
-                                <button
-                                            type="button"
-                                            style={{ backgroundColor: '#B8B8B8', color: "#3A4A58"}}
-                                            className="font-medium text-white text-center w-32 h-10 mr-5"
-                                            onClick={() => setPrevPage()}
-                                            >
-                                            Back
-                                          </button>
-                                          <button
-                                            //id="btn"
-                                            type="submit"
-                                            style={{ backgroundColor: '#3A4A58'}}
-                                            // CLASSNAME TO SUBMIT FORM (hh-pd-submit)
-                                            className="font-medium text-white text-center text-xs w-32 h-10"
-                                            //onClick={() => setNextPage()}
-                                          >
-                                          AM I A GOOD FIT?
-                                          </button>
-                                          
+                          }
+                          {
+                              currentPage === 3 && 
+                              <>
+                                    <input className="block mb-spacing10 pl-1 border-selectBorderColor rounded-none h-selectHeight32 w-full" id="input" type="text" placeholder="First name" {...register("FirstName", {required: true, maxLength: 80})} />
+                                    <input className="block mb-spacing10 pl-1 border-selectBorderColor rounded-none h-selectHeight32 w-full" id="input" type="text" placeholder="Last name" {...register("LastName", {required: true, maxLength: 100})} />
+                                    <input className="block mb-spacing10 pl-1 border-selectBorderColor rounded-none h-selectHeight32 w-full" id="input" type="text" placeholder="Email Address" {...register("EmailAddress", {required: true, pattern: /^\S+@\S+$/i})} />
+                                    <input className="block mb-spacing10 pl-1 border-selectBorderColor rounded-none h-selectHeight32 w-full" id="input" type="tel" placeholder="Phone Number" {...register("PhoneNumber", {required: false, maxLength: 12})} />
+                                    <p className="text-disclaimerGray text-disclaimer10 font-serif">
+                                    This assessment provides personalized information based on your answers, but results should not be considered definitive or final. 
+                                    One of our counselors will reach out to offer additional insights and assistance.
+                                    </p>
+                                    <div className="sm:flex sm:flex-row-reverse">
+                                      
+                                      <button
+                                          id="btn"
+                                          type="submit"
+                                          className="font-medium text-white text-center w-auto h-auto mt-spacing16 px-5 py-3"
+                                          //onClick={() => setNextPage()}
+                                          style={{ backgroundColor: '#E8B54A'}}
+                                      >
+                                        Submit
+                                      </button>
+                                      <button
+                                          id="btn"
+                                          className="font-medium text-white text-center w-auto h-auto mt-spacing16 mr-spacing10 px-5 py-3"
+                                          onClick={() => setPrevPage()}
+                                          style={{ backgroundColor: '#393939'}}
+                                      >
+                                        Back
+                                      </button>
                                     </div>
-                                </>
-                            : 
-                            null
-                        }
-                          </form>
-                        {
-                            currentPage === 3 ? 
-                            <>
-                                <div className="h-28 mb-2 text-center pt-4" style={{ backgroundColor: '#3A4A58'}}>
-                                  <p className="text-3xl font-semibold" style={{ color: "white"}} tabIndex="0">Thank you, {watchFirstName}!</p>
-                                  <p className="text-base font-medium" style={{ color: "white", margin: '20px'}} tabIndex="0">From what you've told us...</p>
-                                </div>
-                                      {programDecision()}
-                                {/* <section id="confirmation-response" style={{ maxWidth: '425px', minWidth: 'auto', height: '162px', backgroundColor: 'white', margin: 'auto'}}>
-                                    <p id="response-content" className="mt-32">
-                                    {programDecision()}
-                                    </p>
-                                </section>
-                                <div id="button-container'">
-                                    <p id="next-steps-text" className="font-normal mt-10 mb-10">
-                                    Ready to take the next step? Get in touch  or schedule an appointment with an admissions counselor!
-                                    </p>
-                                    <p>
-                                    Schedule a meeting below!
-                                    </p>
-                                </div> */}
-                                {/* <InlineWidget url="https://calendly.com/mariahm_clemsonie" style={{ minWidth:"320px", height:"630px"}}/> */}
-                                
-</>
-                            :
-                            null
-                        }
-                    </div>
-                    </div>
-                </div>
-          </Transition.Child>
-        </div>
-      </Dialog>
-    </Transition.Root>
-  )
+                                  </>
+                          }
+                        </form>
+                      </div>
+            
+    )
+    else
+         return(
+          <>
+          <div className="overflow-y-auto h-appHeight525 w-appWidth340" style={{backgroundColor: '#2B2B29'}}>
+            {programDecision()}         
+          </div>                                                     
+      </>
+         )                                                  
 }
